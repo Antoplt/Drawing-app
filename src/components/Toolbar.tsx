@@ -1,11 +1,11 @@
 import './Toolbar.css'
 import { useEffect, useState, type JSX } from "react";
-import { PersistentElements } from './PersistentElement';
-import { useAppDispatch, useAppSelector } from "./hooks/storeHooks";
-import { setFillStyle, setStrokeStyle, setLineWidth } from './slices/toolbarSlice.ts';
+import { PersistentElements } from '../core/PersistentElements.ts';
+import { useAppDispatch, useAppSelector } from "../hooks/storeHooks";
+import { setFillStyle, setStrokeStyle, setLineWidth } from '../store/slices/toolbarSlice.ts';
 import { removeItem, duplicateItem, setSelectedItemFillStyle, 
-	setSelectedItemStrokeStyle, setSelectedItemLineWidth } from './slices/canvasSlice.ts';
-import type { ModeName } from './mode/modeTypes.ts';
+	setSelectedItemStrokeStyle, setSelectedItemLineWidth } from '../store/slices/canvasSlice.ts';
+import type { ModeName } from '../core/mode/modeTypes.ts';
 
 
 function Toolbar({persistentElements, currentModeName, setMode}:

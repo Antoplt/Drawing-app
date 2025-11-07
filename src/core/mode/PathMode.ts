@@ -1,10 +1,10 @@
 import type { Mode } from './Mode.ts';
-import type { PersistentElements } from '../PersistentElement.ts';
-import { EllipseItem } from '../canvas/EllipseItem.ts';
-import type { AppDispatch } from "../stores/store";
-import { type SerializedCanvasItem, type EllipseData, addItem, updateItem } from '../slices/canvasSlice.ts';
+import type { PersistentElements } from '../PersistentElements.ts';
+import { PathItem } from '../shapes/PathItem.ts';
+import type { AppDispatch } from "../../store/store";
+import { type SerializedCanvasItem, type PathData, addItem, updateItem } from '../../store/slices/canvasSlice.ts';
 
-export class EllipseMode implements Mode {
+export class PathMode implements Mode {
     
     private persistentElements: PersistentElements | null = null;
     private dispatch: AppDispatch;
@@ -18,32 +18,28 @@ export class EllipseMode implements Mode {
     onMouseDown(event: React.MouseEvent): void {
         if (this.persistentElements) {
             const pos = this.persistentElements.getMousePos(event.clientX, event.clientY);
-            const ellipseData: EllipseData = {
-                firstPoint: pos,
-                radius: { x: 0, y: 0 },
-                rotation: 0,
-                angle: { startAngle: 0, endAngle: 2 * Math.PI }
+            const pathData: PathData = {
+                points: [pos]
             };
-
-            const serializedEllipseItem: SerializedCanvasItem = {
-                id: "",
-                type: 'Ellipse',
-                data: ellipseData,
+            
+            const serializedPathItem: SerializedCanvasItem = {
+                id: "", 
+                type: 'Path',
+                data: pathData,
                 fillStyle: this.persistentElements.fillStyle,
                 strokeStyle: this.persistentElements.strokeStyle,
                 lineWidth: this.persistentElements.lineWidth,
             };
-            this.dispatch(addItem(serializedEllipseItem));
+            this.dispatch(addItem(serializedPathItem));
 
-            const ellipseItem = new EllipseItem(
+            const pathItem = new PathItem(
                 this.persistentElements.ctx,
                 {x: pos.x, y: pos.y},
-                this.persistentElements.fillStyle,
                 this.persistentElements.strokeStyle,
                 this.persistentElements.lineWidth,
                 ""
             );
-            this.persistentElements.addItem(ellipseItem);
+            this.persistentElements.addItem(pathItem);
 
             this.drawing = true;
         }

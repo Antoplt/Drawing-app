@@ -1,7 +1,7 @@
 import type { Mode } from './Mode.ts';
-import type { PersistentElements } from '../PersistentElement.ts';
-import type { AppDispatch } from "../stores/store";
-import { selectItem, moveItem } from '../slices/canvasSlice.ts';
+import type { PersistentElements } from '../PersistentElements.ts';
+import type { AppDispatch } from "../../store/store";
+import { selectItem, moveItem } from '../../store/slices/canvasSlice.ts';
 
 export class SelectMoveMode implements Mode {
     

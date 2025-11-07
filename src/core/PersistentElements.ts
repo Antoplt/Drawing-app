@@ -1,5 +1,5 @@
-import type { RootState } from "./stores/store";
-import type { CanvasItem } from "./canvas/CanvasItem";
+import type { RootState } from "../store/store";
+import type { CanvasItem } from "./shapes/CanvasItem";
 
 export class PersistentElements {
     public canvas: HTMLCanvasElement;

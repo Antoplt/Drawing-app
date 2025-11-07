@@ -1,13 +1,13 @@
 import './App.css';
-import { useEffect, useRef, useState } from 'react';
-import { PersistentElements } from './PersistentElement.ts';
-import Canvas from './canvas/Canvas.tsx';
+import Canvas from './Canvas.tsx';
 import Toolbar from './Toolbar.tsx';
-import { useAppSelector } from "./hooks/storeHooks";
-import { store, type RootState } from './stores/store';
-import { useMode } from './mode/useMode.ts';
+import { useEffect, useRef, useState, type JSX } from 'react';
+import { PersistentElements } from '../core/PersistentElements.ts';
+import { useAppSelector } from "../hooks/storeHooks";
+import { store, type RootState } from '../store/store';
+import { useMode } from '../hooks/useMode.ts';
 
-function App() {
+function App(): JSX.Element  {
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
 	const [persistentElements, setPersistentElements] = useState<PersistentElements | null>(null);

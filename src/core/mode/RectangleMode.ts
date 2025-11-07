@@ -1,8 +1,8 @@
 import type { Mode } from './Mode.ts';
-import type { PersistentElements } from '../PersistentElement.ts';
-import { RectangleItem } from '../canvas/RectangleItem.ts';
-import type { AppDispatch } from "../stores/store";
-import { type SerializedCanvasItem, type RectangleData, addItem, updateItem } from '../slices/canvasSlice.ts';
+import type { PersistentElements } from '../PersistentElements.ts';
+import { RectangleItem } from '../shapes/RectangleItem.ts';
+import type { AppDispatch } from "../../store/store";
+import { type SerializedCanvasItem, type RectangleData, addItem, updateItem } from '../../store/slices/canvasSlice.ts';
 
 export class RectangleMode implements Mode {
 

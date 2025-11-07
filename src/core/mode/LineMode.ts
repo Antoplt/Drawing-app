@@ -1,10 +1,10 @@
 import type { Mode } from './Mode.ts';
-import type { PersistentElements } from '../PersistentElement.ts';
-import { PathItem } from '../canvas/PathItem.ts';
-import type { AppDispatch } from "../stores/store";
-import { type SerializedCanvasItem, type PathData, addItem, updateItem } from '../slices/canvasSlice.ts';
+import type { PersistentElements } from '../PersistentElements.ts';
+import { LineItem } from '../shapes/LineItem.ts';
+import type { AppDispatch } from "../../store/store";
+import { type SerializedCanvasItem, type LineData, addItem, updateItem } from '../../store/slices/canvasSlice.ts';
 
-export class PathMode implements Mode {
+export class LineMode implements Mode {
     
     private persistentElements: PersistentElements | null = null;
     private dispatch: AppDispatch;
@@ -18,28 +18,29 @@ export class PathMode implements Mode {
     onMouseDown(event: React.MouseEvent): void {
         if (this.persistentElements) {
             const pos = this.persistentElements.getMousePos(event.clientX, event.clientY);
-            const pathData: PathData = {
-                points: [pos]
+            const lineData: LineData = {
+                startPoint: pos,
+                endPoint: pos
             };
-            
-            const serializedPathItem: SerializedCanvasItem = {
+
+            const serializedLineItem: SerializedCanvasItem = {
                 id: "", 
-                type: 'Path',
-                data: pathData,
+                type: 'Line',
+                data: lineData,
                 fillStyle: this.persistentElements.fillStyle,
                 strokeStyle: this.persistentElements.strokeStyle,
                 lineWidth: this.persistentElements.lineWidth,
             };
-            this.dispatch(addItem(serializedPathItem));
+            this.dispatch(addItem(serializedLineItem));
 
-            const pathItem = new PathItem(
+            const lineItem = new LineItem(
                 this.persistentElements.ctx,
                 {x: pos.x, y: pos.y},
                 this.persistentElements.strokeStyle,
                 this.persistentElements.lineWidth,
                 ""
             );
-            this.persistentElements.addItem(pathItem);
+            this.persistentElements.addItem(lineItem);
 
             this.drawing = true;
         }

@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import type { Mode } from "./Mode";
-import { PersistentElements } from "../PersistentElement";
-import { SelectMoveMode } from "./SelectMoveMode";
-import { RectangleMode } from "./RectangleMode";
-import { PathMode } from "./PathMode";
-import { LineMode } from "./LineMode";
-import { EllipseMode } from "./EllipseMode";
+import type { Mode } from "../core/mode/Mode";
+import { PersistentElements } from "../core/PersistentElements";
+import { SelectMoveMode } from "../core/mode/SelectMoveMode";
+import { RectangleMode } from "../core/mode/RectangleMode";
+import { PathMode } from "../core/mode/PathMode";
+import { LineMode } from "../core/mode/LineMode";
+import { EllipseMode } from "../core/mode/EllipseMode";
 import { useAppDispatch, useAppSelector } from "../hooks/storeHooks";
-import type { ModeName } from "./modeTypes";
-import { setCurrentModeName } from "../slices/toolbarSlice";
+import type { ModeName } from "../core/mode/modeTypes";
+import { setCurrentModeName } from "../store/slices/toolbarSlice";
 
 interface UseModeResult {
   currentMode: Mode | null;

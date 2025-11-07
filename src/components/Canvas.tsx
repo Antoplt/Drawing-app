@@ -1,6 +1,6 @@
 import './Canvas.css'
 import type { JSX } from 'react';
-import type { Mode } from '../mode/Mode.ts';
+import type { Mode } from '../core/mode/Mode.ts';
 
 function Canvas({canvasRef, currentMode}: 
                 {canvasRef: React.RefObject<HTMLCanvasElement|null>,
