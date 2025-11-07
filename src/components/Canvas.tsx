@@ -1,4 +1,4 @@
-import './Canvas.css'
+import '../styles/Canvas.css'
 import type { JSX } from 'react';
 import type { Mode } from '../core/mode/Mode.ts';
 

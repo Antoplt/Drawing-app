@@ -1,4 +1,4 @@
-import './Toolbar.css'
+import '../styles/Toolbar.css'
 import { useEffect, useState, type JSX } from "react";
 import { PersistentElements } from '../core/PersistentElements.ts';
 import { useAppDispatch, useAppSelector } from "../hooks/storeHooks";

@@ -1,4 +1,4 @@
-import './App.css';
+import '../styles/App.css';
 import Canvas from './Canvas.tsx';
 import Toolbar from './Toolbar.tsx';
 import { useEffect, useRef, useState, type JSX } from 'react';
