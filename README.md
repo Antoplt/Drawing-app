@@ -98,7 +98,7 @@ Ce projet utilise [Vite](https://vitejs.dev/) et [npm](https://www.npmjs.com/).
 
 1.  **Clonez le dépôt :**
     ```sh
-    git clone https://github.com/Antoplt/Drawing-app
+    git clone https://github.com/Antoplt/Drawing-app.git
     ```
 2.  **Accédez au répertoire du projet :**
     ```sh
@@ -115,6 +115,8 @@ Ce projet utilise [Vite](https://vitejs.dev/) et [npm](https://www.npmjs.com/).
     ```sh
     npm run dev
     ```
+2.  **Accédez à l'application dans votre navigateur :**
+    L'application sera accessible à l'adresse indiquée dans le terminal (par défaut `http://localhost:5173`)
 
 
 ## 🧑‍💻 Auteur
