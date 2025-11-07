@@ -1,0 +1,1 @@
+export type ModeName = 'SelectMove' | 'Rectangle' | 'Ellipse'| 'Line' | 'Path' ;
